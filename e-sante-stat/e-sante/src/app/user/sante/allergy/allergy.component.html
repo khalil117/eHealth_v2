@@ -1,0 +1,107 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Allergy</h4>
+                    </div>
+                    <div class="content">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Allergy</label>
+                                    <select [(ngModel)]="item.allergy" class="form-control" placeholder="Select or add an Allergy">
+                                    <option selected="" disabled >Animals</option>
+                                    <option value="Cat">Cat</option>
+                                    <option value="Horse">Horse</option>
+                                    <option value="Cattle">Cattle</option>
+                                    <option value="Birds">Birds</option>
+                                    <option value="Bee">Bee</option>
+                                    <option disabled > Other</option>
+                                    <option value="Accariens">Accariens</option>
+                                    <option value="Latex">Latex</option>
+                                    <option value="Sun">Sun</option>
+                                    <option disabled > Food</option>
+                                    <option value="Egg">Egg</option>
+                                    <option value="Milk">Milk</option>                                       
+                                    <option value="fish">fish</option>
+                                    </select>
+                                    <!-- <input type="text" class="form-control" [(ngModel)]="item.allergy"> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Allergy beginning</label>
+                                    <angular2-date-picker [(ngModel)]="item.start_date" [settings]="{ bigBanner: false, timePicker: false, format: 'yyyy-MM-dd' }"></angular2-date-picker>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Desensitization in progress ?</label>
+                                    <input type="checkbox" [(ngModel)]="item.in_progress">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Allergy end date</label>
+                                    <angular2-date-picker [(ngModel)]="item.end_date" [settings]="{ bigBanner: false, timePicker: false, format: 'yyyy-MM-dd' }"></angular2-date-picker>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Other information</label>
+                                    <textarea class="form-control" [(ngModel)]="item.description"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-info btn-fill pull-right" (click)="add()">Add</button>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Allergies</h4>
+                        <p class="category"></p>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th *ngFor="let cell of tableData.headerRow">{{ cell }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of tableData.dataRows">
+                                    <td>{{ row[0] }}</td>
+                                    <td>{{ row[1] }}</td>
+                                    <td>{{ row[2] | date:'dd/MM/yyyy' }}</td>
+                                    <td>{{ row[3] == true ? "YES":"NO" }}</td>
+                                    <td>{{ row[4] | date:'dd/MM/yyyy'}}</td>
+                                    <td>{{ row[5] }}</td>
+                                    <td>
+                                        <button *ngIf="row[6]" id="{{row[6]}}" class="btn btn-info btn-fill pe-7s-trash" (click)="delete($event)"></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

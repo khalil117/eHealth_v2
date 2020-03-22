@@ -1,0 +1,156 @@
+<div class="main-content p-t-10 register-bg height-100">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Create an account</h4>
+                    </div>
+
+                    <div class="content">
+                        <div class="alert alert-danger" *ngIf='error'>
+                            <span>{{ error }}</span>
+                        </div>
+                        <!-- <form> -->
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Account type</label>
+                                    <select [(ngModel)]="user.role" class="form-control">
+                                        <option value="particulier">Particular</option>
+                                        <option value="medecin">Medecin</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Option</label>
+                                    <select [(ngModel)]="user.option" type="text" class="form-control">
+                                        <option value="base">Option de base</option>
+                                        <option value="famille">Option Famille</option>
+                                        <option value="gold">Option Gold</option>
+                                        <option value="premium">Option Premium</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Language</label>
+                                    <select [(ngModel)]="user.language" type="text" class="form-control">
+                                        <option value="fr">Frensh</option>
+                                        <option value="en">English</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="text" class="form-control" [(ngModel)]="user.email">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Avatar</label>
+                                    <input type="text" class="form-control" [(ngModel)]="user.avatar">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control" [(ngModel)]="user.password">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Gender</label>
+                                    <select [(ngModel)]="user.gender" class="form-control">
+                                        <option value="femme">Female</option>
+                                        <option value="homme">Male</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Last name</label>
+                                    <input type="text" class="form-control" [(ngModel)]="user.firstname">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <input type="text" class="form-control" [(ngModel)]="user.lastname">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Birthday</label>
+                                    <angular2-date-picker [(ngModel)]="user.birthday" [settings]="{ bigBanner: false, timePicker: false, format: 'yyyy-MM-dd' }"></angular2-date-picker>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Mobile</label>
+                                    <input type="text" class="form-control" [(ngModel)]="user.mobile">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Phone</label>
+                                    <input type="text" class="form-control" [(ngModel)]="user.phone">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Country</label>
+                                    <input type="text" class="form-control" [(ngModel)]="user.country">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Region</label>
+                                    <input type="text" class="form-control" [(ngModel)]="user.region">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>City</label>
+                                    <input type="text" class="form-control" [(ngModel)]="user.city">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Zip Code </label>
+                                    <input type="text" class="form-control" [(ngModel)]="user.zipcode">
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label>Adresse</label>
+                                    <input type="text" class="form-control" [(ngModel)]="user.address">
+                                </div>
+                            </div>
+                        </div>
+
+                        <button (click)="register()" type="submit" class="btn btn-info btn-fill pull-right">Register</button>
+                        <div class="clearfix"></div>
+                        <a routerLink="/login">Already have an account ?</a>
+                        <!-- </form> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

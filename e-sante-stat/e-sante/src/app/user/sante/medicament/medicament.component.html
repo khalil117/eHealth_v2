@@ -1,0 +1,102 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Pharmaceuticals</h4>
+                    </div>
+                    <div class="content">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Medicament</label>
+                                    <input type="text" class="form-control" [(ngModel)]="item.medicament">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Long duration ?</label>
+                                    <input type="checkbox" [(ngModel)]="item.duration">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Without descreption ?</label>
+                                    <input type="checkbox" [(ngModel)]="item.without_order">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Start treatment</label>
+                                    <angular2-date-picker [(ngModel)]="item.start_date" [settings]="{ bigBanner: false, timePicker: false, format: 'yyyy-MM-dd' }"></angular2-date-picker>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>End treatment</label>
+                                    <angular2-date-picker [(ngModel)]="item.end_date" [settings]="{ bigBanner: false, timePicker: false, format: 'yyyy-MM-dd' }"></angular2-date-picker>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Other information</label>
+                                    <textarea class="form-control" [(ngModel)]="item.description"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-info btn-fill pull-right" (click)="add()">Add</button>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Pharmaceuticals</h4>
+                        <p class="category"></p>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th *ngFor="let cell of tableData.headerRow">{{ cell }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of tableData.dataRows">
+                                    <td>{{ row[0] }}</td>
+                                    <td>{{ row[1] }}</td>
+                                    <td>{{ row[2] == true ? "YES":"NO" }}</td>
+                                    <td>{{ row[3] == true ? "YES":"NO" }}</td>
+                                    <td>{{ row[4] | date:'dd/MM/yyyy'}}</td>
+                                    <td>{{ row[5] | date:'dd/MM/yyyy'}}</td>
+                                    <td>{{ row[6] }}</td>
+                                    <td>
+                                        <button *ngIf="row[7]" id="{{row[7]}}" class="btn btn-info btn-fill pe-7s-trash" (click)="delete($event)"></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

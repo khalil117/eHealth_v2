@@ -1,0 +1,22 @@
+{
+  "name": "esante",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "TOUIL Khalil",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.17.1"
+  },
+  "dependencies": {
+    "connect": "^3.6.6",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "mongoose": "^4.2.6",
+    "morgan": "^1.5.1"
+  }
+}

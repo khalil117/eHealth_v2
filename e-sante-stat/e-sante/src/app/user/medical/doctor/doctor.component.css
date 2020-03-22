@@ -1,0 +1,14 @@
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+::ng-deep .mat-select-content{
+  width:200px;
+  background-color: red;
+  font-size: 10px;
+}

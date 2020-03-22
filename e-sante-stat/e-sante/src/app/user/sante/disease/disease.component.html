@@ -1,0 +1,121 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Disease </h4>
+                    </div>
+                    <div class="content">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Disease</label>
+                                    <select [(ngModel)]="item.disease" class="form-control" placeholder="Select or add a Disease">
+                                    <option selected="" disabled ></option>
+                                    <option value="coronary artery disease (CAD)">coronary artery disease (CAD)</option>
+                                    <option value="stroke">Stroke</option>
+                                    <option value="Lower respiratory infections(lri)">Lower respiratory infections</option>
+                                    <option value="Chronic obstructive pulmonary disease (COPD)">Chronic obstructive pulmonary disease (COPD)</option>
+                                    <option value="Trachea, bronchus, and lung cancers(tbld)">Trachea, bronchus, and lung cancers</option>
+                                    <option value="diabetes">Diabetes mellitus</option>
+                                    <option value="Alzheimer’s disease and other dementias(adod)">Alzheimer’s disease and other dementias</option>
+                                    <option value="Dehydration due to diarrheal diseases">Dehydration due to diarrheal diseases</option>
+                                    <option value="Tuberculosis (TB)">Tuberculosis (TB)</option>
+                                    <option value="Cirrhosis">Cirrhosis</option>                                       
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Disease still in progress ?</label>
+                                    <input type="checkbox" [(ngModel)]="item.in_progress">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Hereditary ?</label>
+                                    <input type="checkbox" [(ngModel)]="item.hereditary">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Long duration ?</label>
+                                    <input type="checkbox" [(ngModel)]="item.duration">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Date of detection of the disease</label>
+                                    <angular2-date-picker [(ngModel)]="item.start_date" [settings]="{ bigBanner: false, timePicker: false, format: 'yyyy-MM-dd' }"></angular2-date-picker>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Healing date</label>
+                                    <angular2-date-picker [(ngModel)]="item.end_date" [settings]="{ bigBanner: false, timePicker: false, format: 'yyyy-MM-dd' }"></angular2-date-picker>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Other information</label>
+                                    <textarea class="form-control" [(ngModel)]="item.description"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-info btn-fill pull-right" (click)="add()">Add</button>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Diseases</h4>
+                        <p class="category"></p>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th *ngFor="let cell of tableData.headerRow">{{ cell }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of tableData.dataRows">
+                                    <td>{{ row[0] }}</td>
+                                    <td>{{ row[1] }}</td>
+                                    <td>{{ row[2] == true ? "YES":"NO" }}</td>
+                                    <td>{{ row[3] == true ? "YES":"NO" }}</td>
+                                    <td>{{ row[4] == true ? "YES":"NO" }}</td>
+                                    <td>{{ row[5] | date:'dd/MM/yyyy'}}</td>
+                                    <td>{{ row[6] | date:'dd/MM/yyyy'}}</td>
+                                    <td>{{ row[7] }}</td>
+                                    <td>
+                                        <button *ngIf="row[8]" id="{{row[8]}}" class="btn btn-info btn-fill pe-7s-trash" (click)="delete($event)"></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

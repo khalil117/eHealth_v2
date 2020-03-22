@@ -1,0 +1,33 @@
+<div class="main-content" >
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Blood group</h4>
+                    </div>
+                    <div class="content">
+                            
+                            <div class="row">
+                                
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Group</label>
+                                        <select [(ngModel)]="blood" class="form-control">
+                                            <option *ngFor="let blood of bloods" [ngValue]="blood">{{ blood.group }}</option>
+                                            <option [ngValue]="null">Unspecified</option>
+                                          </select>
+                                        
+                                        <!-- <input type="text" class="form-control" [(ngModel)]="blood.group"> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-info btn-fill pull-right" (click)="updateBlood()">Modify</button>
+                            <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
